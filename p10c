@@ -1,0 +1,9 @@
+using Plots 
+p_values = -π:0.01:π 
+q1(p) = sin(p) + sin(2p) 
+q2(p) = sin(2p) + sin(3p) 
+q_values1 = q1.(p_values) 
+q_values2 = q2.(p_values) 
+plot(p_values, q_values1, label="q = sin(p) + sin(2p)", plabel="p", qlabel="q",title="Plot of q = sin(p) + sin(2p)")
+plot!(p_values, q_values2, label="q = sin(2p) + sin(3p)")
+display(plt) 
