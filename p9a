@@ -1,0 +1,28 @@
+function elementwise_add(A, B) 
+n, m = size(A) 
+C = similar(A) 
+for i in 1:n 
+for j in 1:m 
+C[i, j] = A[i, j] + B[i, j] 
+end 
+end 
+return C 
+end 
+function elementwise_sub(A, B) 
+n, m = size(A) 
+C = similar(A) 
+for i in 1:n 
+for j in 1:m 
+C[i, j] = A[i, j] - B[i, j] 
+end 
+end 
+return C 
+end 
+A = [1.0 2.0; 3.0 4.0] 
+B = [5.0 6.0; 7.0 8.0] 
+C = elementwise_add(A, B) 
+println("Element-wise addition:") 
+println(C) 
+D = elementwise_sub(A, B) 
+println("Element-wise subtraction:") 
+println(D)
