@@ -1,0 +1,19 @@
+function is_palindrome(word) 
+n = length(word) 
+for i in 1:n÷2 
+if word[i] != word[n-i+1] 
+return false 
+end 
+end 
+return true 
+end 
+function main() 
+println("Enter a word:") 
+word = readline() 
+if is_palindrome(word) 
+println("The word is a palindrome.") 
+else 
+println("The word is not a palindrome.") 
+end 
+end 
+main()
