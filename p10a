@@ -1,0 +1,7 @@
+using Plots
+a = range(-5, 5, length=100) 
+y1 = a.^2 
+y2 = -x.^2 
+plt = plot(a, y1, label="y = a²", linestyle=:solid, linewidth=2, alabel="a",ylabel="y", title="Plot of y = a² (solid) and y = -a² (dotted)") 
+plot!(a, y2, label="y = -a²", linestyle=:dot, linewidth=2) 
+display(plt)
