@@ -1,0 +1,25 @@
+function read_votes(n) 
+votes = Dict{String, Int}() 
+for i in 1:n 
+print("Enter the name of artist $i: ") 
+name = readline() 
+print("Enter the number of votes for artist $i: ") 
+votes[name] = parse(Int, readline()) 
+end 
+return votes 
+end 
+function find_most_popular(votes) 
+max_votes = 0 
+most_popular = "" 
+for (name, votes) in votes 
+if votes > max_votes 
+max_votes = votes 
+most_popular = name 
+end 
+end 
+return most_popular 
+end 
+n = 10 
+votes = read_votes(n) 
+most_popular = find_most_popular(votes) 
+println("The most popular artist is $most_popular")
