@@ -1,0 +1,21 @@
+function letter_frequency(text) 
+freq = Dict{Char, Int}() 
+for c in text 
+if isletter(c) 
+lc = lowercase(c) 
+if haskey(freq, lc) 
+freq[lc] += 1 
+else 
+freq[lc] = 1 
+end 
+end 
+end 
+return freq 
+end 
+println("Enter a line of text:") 
+text = readline() 
+freq = letter_frequency(text) 
+println("Letter frequencies:") 
+for (letter, count) in freq 
+println("$letter: $count") 
+end 
