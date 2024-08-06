@@ -1,24 +1,22 @@
-function fetch_words(file_path::AbstractString) 
+function fetch_words(file_path::AbstractString)
+    unique_words = Set{String}()
+    open(file_path) do file
+        for line in eachline(file)
+            words = split(replace(lowercase(line), r"[[:punct:]]" => ""), " ")
+            for word in words
+                if word != ""
+                    push!(unique_words, word)
+                end
+            end
+        end
+    end
+    return unique_words
+end
 
-unique_words = Set{String}() 
+file_path = "C:\\Users\\hp\\OneDrive\\Desktop\\Julia\\input.txt"
 
-open(file_path) do file 
-
-for line in eachline(file) 
- 
-words = split(replace(lowercase(line), r"[[:punct:]]" => ""), " ") 
-
-for word in words 
-push!(unique_words, word) 
-end 
-end 
-end 
-return unique_words 
-end 
-
-file_path = " C:\Users\LENOVO\Desktop"  # Replace with your file path 
-words_set = fetch_words(file_path) 
-println("Unique words found in the file:") 
-for word in words_set 
-println(word) 
+words_set = fetch_words(file_path)
+println("Unique words found in the file:")
+for word in words_set
+    println(word)
 end
