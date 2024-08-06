@@ -1,39 +1,48 @@
-function scalar_multiplication(matrix::Matrix{T}, scalar::T) where T 
-return matrix * scalar 
-end 
-function element_wise_multiplication(matrix1::Matrix{T}, 
-matrix2::Matrix{T}) where T 
-return matrix1 .* matrix2 
-end 
-function dot_product(vector1::Vector{T}, vector2::Vector{T}) where T 
-if length(vector1) != length(vector2) 
-error("Vectors must have the same length for dot product operation.") 
-end 
-return dot(vector1, vector2) 
-end 
-function cross_product(vector1::Vector{T}, vector2::Vector{T}) where T 
-if length(vector1) != 3 || length(vector2) != 3 
-error("Cross product is only defined for 3-dimensional vectors.") 
-end 
-return cross(vector1, vector2) 
-end 
-# Example usage 
-A = [1 2; 3 4] 
-B = [5 6; 7 8] 
-println("Scalar Multiplication:") 
-scalar = 2 
-println("A * $scalar:") 
-println(scalar_multiplication(A, scalar)) 
-println("\nElement-wise Multiplication:") 
-println("A .* B:") 
-println(element_wise_multiplication(A, B)) 
-println("\nDot Product:") 
-v1 = [1, 2, 3] 
-v2 = [4, 5, 6] 
-println("Dot Product of $v1 and $v2:") 
-println(dot_product(v1, v2)) 
-println("\nCross Product:") 
-v3 = [1, 2, 3] 
-v4 = [4, 5, 6] 
-println("Cross Product of $v3 and $v4:") 
-println(cross_product(v3, v4)) 
+using LinearAlgebra
+
+function scalar_multiplication(matrix::Matrix{T}, scalar::T) where T
+    return matrix * scalar
+end
+
+function element_wise_multiplication(matrix1::Matrix{T}, matrix2::Matrix{T}) where T
+    return matrix1 .* matrix2
+end
+
+function dot_product(vector1::Vector{T}, vector2::Vector{T}) where T
+    if length(vector1) != length(vector2)
+        error("Vectors must have the same length for dot product operation.")
+    end
+    return dot(vector1, vector2)
+end
+
+function cross_product(vector1::Vector{T}, vector2::Vector{T}) where T
+    if length(vector1) != 3 || length(vector2) != 3
+        error("Cross product is only defined for 3-dimensional vectors.")
+    end
+    return cross(vector1, vector2)
+end
+
+# Example usage
+A = [1 2; 3 4]
+B = [5 6; 7 8]
+
+println("Scalar Multiplication:")
+scalar = 2
+println("A * $scalar:")
+println(scalar_multiplication(A, scalar))
+
+println("\nElement-wise Multiplication:")
+println("A .* B:")
+println(element_wise_multiplication(A, B))
+
+println("\nDot Product:")
+v1 = [1, 2, 3]
+v2 = [4, 5, 6]
+println("Dot Product of $v1 and $v2:")
+println(dot_product(v1, v2))
+
+println("\nCross Product:")
+v3 = [1, 2, 3]
+v4 = [4, 5, 6]
+println("Cross Product of $v3 and $v4:")
+println(cross_product(v3, v4))
