@@ -1,25 +1,16 @@
 using LinearAlgebra
-
 function matrix_properties(A)
     n = size(A, 1)
-    # Determinant
     detA = det(A)
-    # Inverse
     invA = inv(A)
-    # Rank
     rankA = rank(A)
-    # LU Decomposition for Upper and Lower Triangular Matrices
     L, U = lu(A).L, lu(A).U
-    # Diagonal Elements
     diagA = diag(A)
-    # Euclidean Norm
     normA = norm(A)
     return detA, invA, rankA, U, L, diagA, normA
 end
-
 A = [3.0 2.0 -1.0; 1.0 0.0 2.0; 0.0 -1.0 1.0]
 detA, invA, rankA, U, L, diagA, normA = matrix_properties(A)
-
 println("Determinant: ", detA)
 println("Inverse: ", invA)
 println("Rank: ", rankA)
