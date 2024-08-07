@@ -1,21 +1,14 @@
 function read_and_print_words(filename) 
-
 file = open(“input.txt”, "r") 
- 
-current_word = "" 
- 
+current_word = ""
 for char in eachline(file) 
- 
 if isletter(char) 
 current_word *= char 
- 
 else 
 println(current_word) 
 current_word = "" 
 end 
 end 
-
 close(file) 
 end 
-
-read_and_print_words("input.txt") 
+read_and_print_words("input.txt")
